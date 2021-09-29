@@ -116,6 +116,7 @@ def main() -> None:
         rightColor=args.right_color,
         title=args.title,
     )
+
     with open(file=args.output, mode="w") as svg:
         svg.write(badge)
         svg.close()
