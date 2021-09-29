@@ -102,7 +102,9 @@ def main() -> None:
     with open(file=args.graph, mode="r", encoding="utf8") as file:
         byteStream: bytes = bytes(file.read(), "utf8")
         base64EncodedByteStream: bytes = b64encode(byteStream)
-        base64EncodedStr: str = "data:image/svg+xml;base64," + base64EncodedByteStream.decode("utf8")
+        base64EncodedStr: str = (
+            "data:image/svg+xml;base64," + base64EncodedByteStream.decode("utf8")
+        )
         file.close()
 
     badge: str = createBadge(
