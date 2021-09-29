@@ -1,4 +1,5 @@
 from argparse import ArgumentParser, Namespace
+from base64 import b64encode
 
 from pybadges import badge
 
@@ -69,7 +70,7 @@ def createBadge(
     leftText: str = "Hello",
     rightText: str = "World",
     link: str = "https://github.com/SoftwareSystemsLaboratory/",
-    logo: str = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAD0lEQVQI12P4zwAD/xkYAA/+Af8iHnLUAAAAAElFTkSuQmCC",
+    logo: str = "",
     leftColor: str = "maroon",
     rightColor: str = "gold",
     title: str = "SSL Metrics Badge",
@@ -89,7 +90,7 @@ def createBadge(
 def main() -> None:
     args: Namespace = getArgs()
 
-    if args.graph[-4::] != ".png":
+    if args.graph[-4::] != ".svg":
         print("Invalid graph file extension. File must end in .png")
         quit(1)
 
@@ -97,11 +98,16 @@ def main() -> None:
         print("Invalid output file extension. File must end in .svg")
         quit(2)
 
+    graphSVG: str
+    with open(file=args.graph, mode="r", encoding="utf8") as file:
+        graphSVG = b64encode(bytes(file.read(), "utf8")).decode("utf8")
+        file.close()
+
     badge: str = createBadge(
         leftText=args.left_text,
         rightText=args.right_text,
         link=args.link,
-        logo=args.graph,
+        logo="data:image/svg+xml;base64," + graphSVG,
         leftColor=args.left_color,
         rightColor=args.right_color,
         title=args.title,
