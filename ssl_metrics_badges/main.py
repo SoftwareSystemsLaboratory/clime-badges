@@ -14,7 +14,7 @@ def getArgs() -> Namespace:
         "--graph",
         required=True,
         type=str,
-        help="The graph PNG file to be the badge logo",
+        help="The graph SVG file to be the badge logo",
     )
     parser.add_argument(
         "--left-color",
