@@ -9,16 +9,30 @@ def getArgs() -> Namespace:
     )
 
     parser.add_argument(
+        "-g",
+        "--graph",
+        required=True,
+        type=str,
+        help="The graph PNG file to be the badge logo",
+    )
+    parser.add_argument(
+        "--left-color",
+        required=True,
+        type=str,
+        help="Left side color",
+    )
+    parser.add_argument(
+        "-l",
         "--left-text",
         required=True,
         type=str,
         help="Text to go on the left side of the badge",
     )
     parser.add_argument(
-        "--graph",
+        "--link",
         required=True,
         type=str,
-        help="The graph SVG file to be converted into a badge",
+        help="Link to a specific URL that will open when the badge is clicked",
     )
     parser.add_argument(
         "-o",
@@ -26,6 +40,26 @@ def getArgs() -> Namespace:
         required=True,
         type=str,
         help="The output filename of the badge. NOTE: Must end in .svg",
+    )
+    parser.add_argument(
+        "-r",
+        "--right-text",
+        required=True,
+        type=str,
+        help="Text to go on the left side of the badge",
+    )
+    parser.add_argument(
+        "--right-color",
+        required=True,
+        type=str,
+        help="Right side color",
+    )
+    parser.add_argument(
+        "-t",
+        "--title",
+        required=True,
+        type=str,
+        help="Title of the badge",
     )
 
     return parser.parse_args()
@@ -55,15 +89,23 @@ def createBadge(
 def main() -> None:
     args: Namespace = getArgs()
 
-    if args.graph[-4::] != ".svg":
-        print("Invalid graph file extension. File must end in .svg")
+    if args.graph[-4::] != ".png":
+        print("Invalid graph file extension. File must end in .png")
         quit(1)
 
     if args.output[-4::] != ".svg":
         print("Invalid output file extension. File must end in .svg")
         quit(2)
 
-    badge: str = createBadge()
+    badge: str = createBadge(
+        leftText=args.left_text,
+        rightText=args.right_text,
+        link=args.link,
+        logo=args.graph,
+        leftColor=args.left_color,
+        rightColor=args.right_color,
+        title=args.title,
+    )
     with open(file=args.output, mode="w") as svg:
         svg.write(badge)
         svg.close()
