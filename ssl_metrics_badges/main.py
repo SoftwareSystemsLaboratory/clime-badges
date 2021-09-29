@@ -30,10 +30,29 @@ def getArgs() -> Namespace:
 
     return parser.parse_args()
 
-def createBadge(leftText: str)   ->  str:
-    badge(left_text=leftText, right_text="", left_link="", right_link="", whole_link="", logo="", left_color="", right_color="", measurer="", embed_logo=True, whole_title="", left_title="", right_title="")
 
-def main()  ->  None:
+def createBadge(
+    leftText: str = "Hello",
+    rightText: str = "World",
+    link: str = "https://github.com/SoftwareSystemsLaboratory/",
+    logo: str = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAD0lEQVQI12P4zwAD/xkYAA/+Af8iHnLUAAAAAElFTkSuQmCC",
+    leftColor: str = "maroon",
+    rightColor: str = "gold",
+    title: str = "SSL Metrics Badge",
+) -> str:
+    return badge(
+        left_text=leftText,
+        right_text=rightText,
+        whole_link=link,
+        logo=logo,
+        left_color=leftColor,
+        right_color=rightColor,
+        embed_logo=True,
+        whole_title=title,
+    )
+
+
+def main() -> None:
     args: Namespace = getArgs()
 
     if args.graph[-4::] != ".svg":
@@ -43,6 +62,12 @@ def main()  ->  None:
     if args.output[-4::] != ".svg":
         print("Invalid output file extension. File must end in .svg")
         quit(2)
+
+    badge: str = createBadge()
+    with open(file=args.output, mode="w") as svg:
+        svg.write(badge)
+        svg.close()
+
 
 if __name__ == "__main__":
     main()
