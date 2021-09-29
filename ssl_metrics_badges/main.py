@@ -1,10 +1,26 @@
+from argparse import ArgumentParser, Namespace
+
 from pybadges import badge
 
-temp: str = badge(
-    left_text="Hello World",
-    right_text="This is a test",
-    left_color="blue",
-    right_color="red",
-)
 
-print(temp)
+def getArgs() -> Namespace:
+    parser: ArgumentParser = ArgumentParser(
+        prog="SSL Metrics Badges", usage="Generate custom SVG metrics badges"
+    )
+
+    parser.add_argument(
+        "-l",
+        "--left-side",
+        required=True,
+        type=str,
+        help="Text to go on the left side of the badge",
+    )
+    parser.add_argument(
+        "-s",
+        "--svg",
+        required=True,
+        type=str,
+        help="The SVG file to be converted into a badge",
+    )
+
+    return parser.parse_args()
