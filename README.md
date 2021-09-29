@@ -4,6 +4,8 @@
 
 [![Publish to PyPi](https://github.com/SoftwareSystemsLaboratory/ssl-metrics-badges/actions/workflows/pypi.yml/badge.svg)](https://github.com/SoftwareSystemsLaboratory/ssl-metrics-badges/actions/workflows/pypi.yml)
 
+![Example](tests/luc.svg)
+
 ## Table of Contents
 
 - [SSL Metrics Badges](#ssl-metrics-badges)
