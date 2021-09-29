@@ -98,16 +98,18 @@ def main() -> None:
         print("Invalid output file extension. File must end in .svg")
         quit(2)
 
-    graphSVG: str
+    base64EncodedStr: str
     with open(file=args.graph, mode="r", encoding="utf8") as file:
-        graphSVG = b64encode(bytes(file.read(), "utf8")).decode("utf8")
+        byteStream: bytes = bytes(file.read(), "utf8")
+        base64EncodedByteStream: bytes = b64encode(byteStream)
+        base64EncodedStr: str = "data:image/svg+xml;base64," + base64EncodedByteStream.decode("utf8")
         file.close()
 
     badge: str = createBadge(
         leftText=args.left_text,
         rightText=args.right_text,
         link=args.link,
-        logo="data:image/svg+xml;base64," + graphSVG,
+        logo=base64EncodedStr,
         leftColor=args.left_color,
         rightColor=args.right_color,
         title=args.title,
