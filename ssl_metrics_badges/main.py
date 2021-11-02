@@ -17,19 +17,21 @@ def getArgs() -> Namespace:
         help="The graph SVG file to be the badge logo",
     )
     parser.add_argument(
+        "-lc",
         "--left-color",
         required=True,
         type=str,
         help="Left side color",
     )
     parser.add_argument(
-        "-l",
+        "-lt",
         "--left-text",
         required=True,
         type=str,
         help="Text to go on the left side of the badge",
     )
     parser.add_argument(
+        "-u",
         "--link",
         required=True,
         type=str,
@@ -43,13 +45,14 @@ def getArgs() -> Namespace:
         help="The output filename of the badge. NOTE: Must end in .svg",
     )
     parser.add_argument(
-        "-r",
+        "-rt",
         "--right-text",
         required=True,
         type=str,
         help="Text to go on the left side of the badge",
     )
     parser.add_argument(
+        "-rc"
         "--right-color",
         required=True,
         type=str,
@@ -90,7 +93,7 @@ def createBadge(
 def main() -> None:
     args: Namespace = getArgs()
 
-    if args.graph[-4::] != ".svg":
+    if args.graph[-4::] != ".png":
         print("Invalid graph file extension. File must end in .png")
         quit(1)
 
