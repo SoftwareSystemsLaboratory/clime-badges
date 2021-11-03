@@ -48,7 +48,7 @@ setup(
     ],
     python_requires=">=3.9",
     install_requires=[
-        "pybadges",
+        "pybadges>=2.2.1",
     ],
     entry_points={
         "console_scripts": [
