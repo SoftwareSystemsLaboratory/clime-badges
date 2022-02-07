@@ -133,3 +133,4 @@ dmypy.json
 *.json
 *.png
 !tests/*.svg
+!.zenodo.json
