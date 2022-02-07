@@ -6,7 +6,9 @@ from pybadges import badge
 
 def getArgs() -> Namespace:
     parser: ArgumentParser = ArgumentParser(
-        prog="SSL Metrics Badges", usage="Generate custom SVG metrics badges"
+        prog="SSL Metrics Badges",
+        usage="This utility is an interface into the `pybadges` library's ability to create custom, embedable badges for each of the SSL tracked metrics.",
+        epilog="Program created by Nicholas M. Synovic and George K. Thiruvathukal",
     )
 
     parser.add_argument(

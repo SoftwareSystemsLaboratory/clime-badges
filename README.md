@@ -1,44 +1,82 @@
-# SSL Metrics Badges
+# Software Systems Laboratory Badges
 
-> Convert PNG graphs into GitHub compatable badges
+> A `pybadges` interface to create custom badges for each of the Software System Laboratory tracked metrics
 
-[![Publish to PyPi](https://github.com/SoftwareSystemsLaboratory/ssl-metrics-badges/actions/workflows/pypi.yml/badge.svg)](https://github.com/SoftwareSystemsLaboratory/ssl-metrics-badges/actions/workflows/pypi.yml)
-
-![Example](tests/badge.svg)
+![[https://img.shields.io/badge/python-3.9.6%20%7C%203.10-blue](https://img.shields.io/badge/python-3.9.6%20%7C%203.10-blue)](https://img.shields.io/badge/python-3.9.6%20%7C%203.10-blue)
+[![DOI](https://zenodo.org/badge/406267900.svg)](https://zenodo.org/badge/latestdoi/406267900)
+[![Release Project](https://github.com/SoftwareSystemsLaboratory/ssl-metrics-json-converter/actions/workflows/release.yml/badge.svg)](https://github.com/SoftwareSystemsLaboratory/ssl-metrics-json-converter/actions/workflows/release.yml)
+![[https://img.shields.io/badge/license-BSD--3-yellow](https://img.shields.io/badge/license-BSD--3-yellow)](https://img.shields.io/badge/license-BSD--3-yellow)
 
 ## Table of Contents
 
-- [SSL Metrics Badges](#ssl-metrics-badges)
+- [Software Systems Laboratory Badges](#software-systems-laboratory-badges)
   - [Table of Contents](#table-of-contents)
   - [About](#about)
-  - [How to Install](#how-to-install)
-  - [How to Run](#how-to-run)
-    - [Note on Colors](#note-on-colors)
+  - [Developer Tooling](#developer-tooling)
+    - [Operating System](#operating-system)
+    - [Python Software](#python-software)
+  - [How To Use](#how-to-use)
+    - [Installation](#installation)
+    - [Command Line Arguements](#command-line-arguements)
 
 ## About
 
-A script to convert graphs (or other `.png` files 😉) into GitHub compatible `.svg` badges.
+The Software Systems Laboratory (SSL) JSON Converter Project is an interface into the `pybadges` library's ability to create custom, embedable badges for each of the SSL tracked metrics.
 
-### Who is this application for?
+This project is licensed under the BSD-3-Clause. See the [LICENSE](LICENSE) for more information.
 
-This application is meant to be used by developers who want a badge that displays graphical information.
+## Developer Tooling
 
-It can also be used as an interface into the [pybadges](https://github.com/google/pybadges) project.
+To maximize the utility of this project the following software packages are **required**:
 
-### Credits
+### Operating System
 
-[Software and Systems Laboratory](https://github.com/SoftwareSystemsLaboratory)
+This tool **targets** Mac OS and Linux. SSL Metrics software is not supported or recommended to run on Windows *but can be modified to do so at your own risk*.
 
-## How to Install
+It is recomendded to run this tool on Mac OS or Linux. However, if you are on a Windows machine, you can use WSL to develop as well.
 
-0. Install `Python 3.9.6 +`
-1. `pip install ssl-metrics-badges`
+### Python Software
 
-## How to Run
+> The software listed in this section is meant for developing tools
 
-0. `ssl-metrics-badges -h` to view the command line arguements
-1. `ssl-metrics-badges --g GRAPH.png -lc COLOR -lt "LEFT TEXT" -u URL -o FILE.svg -rt "RIGHT TEXT" -rc COLOR -t TITLE`
+All listed Python software assumes that you have downloaded and installed **Python 3.9.6** or greater.
 
-### Note on Colors
+- `pybadges`
 
-Colors can either be phonetically called (such as **red**, **blue**, or **green**) or through hex codes (#123456).
+You can install all of the Python software with one of the following one-liners:
+
+- `pip install --upgrade pandas pip pybadges`
+- `pip install --upgrade pip -r requirements.txt`
+
+## How To Use
+
+### Installation
+
+You can install the tool from PyPi with one of the following one liners:
+
+- `pip install ssl-metrics-meta`
+- `pip install ssl-metrics-badges`
+
+### Command Line Arguements
+
+`ssl-metrics-badeges -h`
+
+```shell
+options:
+  -h, --help            show this help message and exit
+  -g GRAPH, --graph GRAPH
+                        The graph SVG file to be the badge logo
+  -lc LEFT_COLOR, --left-color LEFT_COLOR
+                        Left side color
+  -lt LEFT_TEXT, --left-text LEFT_TEXT
+                        Text to go on the left side of the badge
+  -u LINK, --link LINK  Link to a specific URL that will open when the badge is clicked
+  -o OUTPUT, --output OUTPUT
+                        The output filename of the badge. NOTE: Must end in .svg
+  -rt RIGHT_TEXT, --right-text RIGHT_TEXT
+                        Text to go on the left side of the badge
+  -rc--right-color RC__RIGHT_COLOR
+                        Right side color
+  -t TITLE, --title TITLE
+                        Title of the badge
+```
