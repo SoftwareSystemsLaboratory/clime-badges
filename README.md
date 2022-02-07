@@ -64,19 +64,19 @@ You can install the tool from PyPi with one of the following one liners:
 ```shell
 options:
   -h, --help            show this help message and exit
-  -i INPUT, --input INPUT
-                        File to be converted to other outputs
-  --clipboard           Copy the data from the file to the system's clipboard
-  --csv                 Convert the input to *.csv
-  --excel               Convert the input to *.xlsx
-  --feather             Convert the input to *.feather
-  --hdf                 Convert the input to *.hdf5
-  --html                Convert the input to *.html
-  --json                Convert the input to *.json
-  --latex               Convert the input to *.tex
-  --markdown            Convert the input to *.md
-  --parquet             Convert the input to *.parquet
-  --pickle              Convert the input to *.pkl
-  --stata               Convert input to *.dta
-  --tsv                 Convert the input to *.tsv
+  -g GRAPH, --graph GRAPH
+                        The graph SVG file to be the badge logo
+  -lc LEFT_COLOR, --left-color LEFT_COLOR
+                        Left side color
+  -lt LEFT_TEXT, --left-text LEFT_TEXT
+                        Text to go on the left side of the badge
+  -u LINK, --link LINK  Link to a specific URL that will open when the badge is clicked
+  -o OUTPUT, --output OUTPUT
+                        The output filename of the badge. NOTE: Must end in .svg
+  -rt RIGHT_TEXT, --right-text RIGHT_TEXT
+                        Text to go on the left side of the badge
+  -rc--right-color RC__RIGHT_COLOR
+                        Right side color
+  -t TITLE, --title TITLE
+                        Title of the badge
 ```
