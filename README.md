@@ -21,7 +21,7 @@
 
 ## About
 
-The Software Systems Laboratory (SSL) JSON Converter Project is an interface into the `pybadges` library's ability to create custom, embedable badges for each of the SSL tracked metrics.
+The Software Systems Laboratory (SSL) Badges Project is an interface into the `pybadges` library's ability to create custom, embedable badges for each of the SSL tracked metrics.
 
 This project is licensed under the BSD-3-Clause. See the [LICENSE](LICENSE) for more information.
 
