@@ -2,16 +2,18 @@ from argparse import Namespace
 from base64 import b64encode
 
 from pybadges import badge
+
 from clime_badges.args import mainArgs
 from clime_badges.version import version
 
+
 def createBadge(
-    leftText: str = "Hello",
-    rightText: str = "World",
-    link: str = "https://github.com/SoftwareSystemsLaboratory/",
-    logo: str = "",
-    leftColor: str = "maroon",
-    rightColor: str = "gold",
+    leftText: str,
+    rightText: str,
+    link: str,
+    logo: str,
+    leftColor: str,
+    rightColor: str,
 ) -> str:
     return badge(
         left_text=leftText,
