@@ -1,75 +1,8 @@
-from argparse import ArgumentParser, Namespace
+from argparse import Namespace
 from base64 import b64encode
 
 from pybadges import badge
-
-
-def getArgs() -> Namespace:
-    parser: ArgumentParser = ArgumentParser(
-        prog="SSL Metrics Badges",
-        usage="This utility is an interface into the `pybadges` library's ability to create custom, embedable badges for each of the SSL tracked metrics.",
-        epilog="Program created by Nicholas M. Synovic and George K. Thiruvathukal",
-    )
-
-    parser.add_argument(
-        "-g",
-        "--graph",
-        required=True,
-        type=str,
-        help="The graph SVG file to be the badge logo",
-    )
-    parser.add_argument(
-        "-lc",
-        "--left-color",
-        required=True,
-        type=str,
-        help="Left side color",
-    )
-    parser.add_argument(
-        "-lt",
-        "--left-text",
-        required=True,
-        type=str,
-        help="Text to go on the left side of the badge",
-    )
-    parser.add_argument(
-        "-u",
-        "--link",
-        required=True,
-        type=str,
-        help="Link to a specific URL that will open when the badge is clicked",
-    )
-    parser.add_argument(
-        "-o",
-        "--output",
-        required=True,
-        type=str,
-        help="The output filename of the badge. NOTE: Must end in .svg",
-    )
-    parser.add_argument(
-        "-rt",
-        "--right-text",
-        required=True,
-        type=str,
-        help="Text to go on the right side of the badge",
-    )
-    parser.add_argument(
-        "-rc"
-        "--right-color",
-        required=True,
-        type=str,
-        help="Right side color",
-    )
-    parser.add_argument(
-        "-t",
-        "--title",
-        required=True,
-        type=str,
-        help="Title of the badge",
-    )
-
-    return parser.parse_args()
-
+from clime_badges.args import mainArgs
 
 def createBadge(
     leftText: str = "Hello",
@@ -78,7 +11,6 @@ def createBadge(
     logo: str = "",
     leftColor: str = "maroon",
     rightColor: str = "gold",
-    title: str = "SSL Metrics Badge",
 ) -> str:
     return badge(
         left_text=leftText,
@@ -88,12 +20,11 @@ def createBadge(
         left_color=leftColor,
         right_color=rightColor,
         embed_logo=True,
-        whole_title=title,
     )
 
 
 def main() -> None:
-    args: Namespace = getArgs()
+    args: Namespace = mainArgs()
 
     if args.graph[-4::] != ".png":
         print("Invalid graph file extension. File must end in .png")
