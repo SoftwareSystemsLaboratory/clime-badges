@@ -2,8 +2,8 @@
 
 > A tool to create custom badges displaying CLIME metrics
 
-<!-- Insert GH badges -->
-<!-- Insert Zenodo badges -->
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6477908.svg)](https://doi.org/10.5281/zenodo.6477908)
+[![Release Project](https://github.com/SoftwareSystemsLaboratory/clime-badges/actions/workflows/release.yml/badge.svg)](https://github.com/SoftwareSystemsLaboratory/clime-badges/actions/workflows/release.yml)
 
 ## Table of Contents
 
