@@ -61,5 +61,12 @@ def mainArgs() -> Namespace:
         type=str,
         help="Right side color",
     )
+    parser.add_argument(
+        "-v",
+        "--version",
+        required=False,
+        action="store_true",
+        help="Display version of the tool"
+    )
 
     return parser.parse_args()

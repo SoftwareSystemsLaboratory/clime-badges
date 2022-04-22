@@ -3,6 +3,7 @@ from base64 import b64encode
 
 from pybadges import badge
 from clime_badges.args import mainArgs
+from clime_badges.version import version
 
 def createBadge(
     leftText: str = "Hello",
@@ -25,6 +26,10 @@ def createBadge(
 
 def main() -> None:
     args: Namespace = mainArgs()
+
+    if args.version:
+        print(f"clime-badges version {version()}")
+        quit(0)
 
     if args.graph[-4::] != ".png":
         print("Invalid graph file extension. File must end in .png")
