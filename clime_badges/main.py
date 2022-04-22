@@ -51,7 +51,7 @@ def getArgs() -> Namespace:
         "--right-text",
         required=True,
         type=str,
-        help="Text to go on the left side of the badge",
+        help="Text to go on the right side of the badge",
     )
     parser.add_argument(
         "-rc"
